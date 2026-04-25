@@ -6,6 +6,7 @@ import basicLayout from "../layouts/basicLayout";
 const Loading = () => <div>Loading.....</div>
 const Main = lazy(() => import("../pages/mainPage"));
 const About = lazy(() => import("../pages/aboutPage"));
+const TodoIndex = lazy(() => import("../pages/todo/indexPage"));
 const router = createBrowserRouter([
   {
     path: "",
@@ -18,9 +19,14 @@ const router = createBrowserRouter([
       {
           path:'about',
           element:<Suspense fallback={<Loading/>}><About/></Suspense>
+      },
+      {
+        path:'todo',
+        element:<Suspense fallback={<Loading/>}><TodoIndex/></Suspense>
       }
     ]
   },
+
 
 ]);
 
